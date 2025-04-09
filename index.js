@@ -12,9 +12,22 @@ async function generateIcons(sourceImagePath, outputDir) {
     const sourceImage = sharp(sourceImagePath);
 
     // Generate PNG icons
-    await sourceImage.resize(32, 32).png().toFile(path.join(outputDir, '32x32.png'));
-    await sourceImage.resize(128, 128).png().toFile(path.join(outputDir, '128x128.png'));
-    await sourceImage.resize(256, 256).png().toFile(path.join(outputDir, '256x256.png'));
+    await sourceImage
+      .resize(16, 16)
+      .png()
+      .toFile(path.join(outputDir, 'icon16.png'))
+    await sourceImage
+      .resize(32, 32)
+      .png()
+      .toFile(path.join(outputDir, 'icon32.png'))
+    await sourceImage
+      .resize(48, 48)
+      .png()
+      .toFile(path.join(outputDir, 'icon48.png'))
+    await sourceImage
+      .resize(128, 128)
+      .png()
+      .toFile(path.join(outputDir, 'icon128.png'))
 
     // Generate macOS icon (.icns) - using sharp
     await sourceImage.resize(1024, 1024).png().toFile(path.join(outputDir, 'icon.icns.png')); //Temporary file

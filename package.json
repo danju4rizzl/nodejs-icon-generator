@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "convert": "node index.js original.png output"
+    "convert": "rimraf output && node index.js original.png output"
   },
   "author": "PearAI",
   "license": "ISC",
   "type": "module",
   "dependencies": {
     "sharp": "^0.33.2"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1"
   }
 }
